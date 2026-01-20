@@ -53,3 +53,17 @@ def evaluate_and_append(model_name, best_estimator, X, y, cv, results_df):
     results_df = pd.concat([results_df, new_row], ignore_index=True)
 
     return results_df
+
+# For SMOTENC, CatBoost
+
+
+cat_features = [
+    'gender',
+    'hypertension',
+    'heart_disease',
+    'ever_married',
+    'Residence_type',
+    'age_old',
+    'age_child',
+    'bmi_fat'
+]
