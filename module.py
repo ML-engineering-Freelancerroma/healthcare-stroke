@@ -13,24 +13,6 @@ X = df.drop(columns=['stroke'])
 y = df['stroke']
 skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
-results_df = pd.DataFrame(
-    {
-        'Model': [],
-        'Accuracy': [],
-        'Recall': [],
-        'ROC-AUC': [],
-        'PR-AUC': [],
-    }
-).astype(
-    {
-        'Model': str,
-        'Accuracy': float,
-        'Recall': float,
-        'ROC-AUC': float,
-        'PR-AUC': float,
-    }
-)
-
 
 def evaluate_and_append(model_name, best_estimator, X, y, cv, results_df):
 
