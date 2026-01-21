@@ -8,10 +8,28 @@ from sklearn.metrics import (
 )
 
 
-df = pd.read_csv('health_train.csv')
+DATA_PATH = 'health_train.csv'
+
+df = pd.read_csv(DATA_PATH)
 X = df.drop(columns=['stroke'])
 y = df['stroke']
+
 skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
+
+
+# For SMOTENC, CatBoost
+
+
+CAT_FEATURES = [
+    'gender',
+    'hypertension',
+    'heart_disease',
+    'ever_married',
+    'Residence_type',
+    'age_old',
+    'age_child',
+    'bmi_fat'
+]
 
 
 def evaluate_and_append(model_name, best_estimator, X, y, cv, results_df):
@@ -35,17 +53,3 @@ def evaluate_and_append(model_name, best_estimator, X, y, cv, results_df):
     results_df = pd.concat([results_df, new_row], ignore_index=True)
 
     return results_df
-
-# For SMOTENC, CatBoost
-
-
-cat_features = [
-    'gender',
-    'hypertension',
-    'heart_disease',
-    'ever_married',
-    'Residence_type',
-    'age_old',
-    'age_child',
-    'bmi_fat'
-]
