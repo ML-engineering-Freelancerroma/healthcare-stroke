@@ -8,6 +8,7 @@ from sklearn.metrics import (
 )
 from sklearn.base import BaseEstimator, TransformerMixin
 from sklearn.preprocessing import LabelEncoder
+import json
 
 
 # Educational purpose
@@ -58,6 +59,26 @@ def evaluate_and_append(model_name, best_estimator, X, y, cv, results_df):
     results_df = pd.concat([results_df, new_row], ignore_index=True)
 
     return results_df
+
+
+def add_best_params(model_name, search_object, df_best_params):
+    """
+    Extract best parameters from the search object and append to the DataFrame
+    """
+    
+    best_params = search_object.best_params_
+    params_json = json.dumps(best_params, ensure_ascii=False, indent=None)
+
+    new_row = {
+        'Model': model_name,
+        'Best Params (JSON)': params_json
+    }
+
+    df_best_params = pd.concat(
+        [df_best_params, pd.DataFrame([new_row])],
+        ignore_index=True
+    )
+    return df_best_params
 
 
 class StrokeDataTransformer(BaseEstimator, TransformerMixin):
