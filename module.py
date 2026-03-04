@@ -62,7 +62,7 @@ def evaluate_and_append(model_name, best_estimator, X, y, cv, results_df):
 
 def add_best_params(model_name, search_object, df):
     """
-    Добавляет лучшие параметры модели в DataFrame
+    Add best parameters to the DataFrame
     """
 
     best = search_object.best_params_
