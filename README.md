@@ -32,10 +32,10 @@
 
 - `KNeighborsClassifier`
 - `DecisionTreeClassifier`
-- `RandomForestClassifier` (scikit-learn)
-- `CatBoostClassifier` (catboost)
-- `XGBClassifier` (xgboost)
-- `MLPClassifier` (sklearn.neural_network)
+- `RandomForestClassifier`
+- `CatBoostClassifier`
+- `XGBClassifier`
+- `MLPClassifier`
 
 → файл: `train_orig.ipynb`
 
@@ -59,7 +59,11 @@
 - `XGBClassifier`
 - `CatBoostClassifier`
 
+→ файл: `train_more.ipynb`
+
 Далее проведено ансамблирование этих моделей с помощью `VotingClassifier` → получен небольшой прирост по метрике **PR-AUC**.
+
+→ файл: `voting.ipynb`
 
 ## Итог
 
