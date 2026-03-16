@@ -11,14 +11,16 @@ from sklearn.preprocessing import LabelEncoder
 
 
 # Educational purpose
-DATA_PATH = 'health_train.csv'
+DATA_TRAIN_PATH = 'health_train.csv'
 
-df = pd.read_csv(DATA_PATH)
+df = pd.read_csv(DATA_TRAIN_PATH)
 X = df.drop(columns=['stroke'])
 y = df['stroke']
-
 skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
+# Test data for final prediction
+DATA_TEST_PATH = 'health-stroke-data-test.csv'
+df_test = pd.read_csv(DATA_TEST_PATH)
 
 # For SMOTENC, CatBoost
 CAT_FEATURES = [
