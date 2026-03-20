@@ -19,7 +19,10 @@ y = df['stroke']
 skf = StratifiedKFold(n_splits=5, shuffle=True, random_state=42)
 
 # Test data for final prediction
+DATA_TRAIN_PREFIT = 'healthcare-stroke-data-train.csv'
 DATA_TEST_PATH = 'healthcare-stroke-data-test.csv'
+
+df_prefit = pd.read_csv(DATA_TRAIN_PREFIT)
 df_test = pd.read_csv(DATA_TEST_PATH)
 
 # For SMOTENC, CatBoost
