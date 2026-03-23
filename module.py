@@ -99,31 +99,6 @@ class StrokeDataTransformer(BaseEstimator, TransformerMixin):
         df_fit = df_fit[df_fit['gender'] != 'Other']
         self.gender_encoder.fit(df_fit['gender'])
 
-        dummies_work = pd.get_dummies(
-            df_fit, columns=['work_type'],
-            prefix='work',
-            drop_first=True,
-            dtype=int
-        )
-
-        self.work_type_cols_after_dummies = [
-            col for col in dummies_work.columns if col.startswith('work_')
-        ]
-
-        dummies_smoke = pd.get_dummies(
-            df_fit, columns=['smoking_status'],
-            prefix='smoke',
-            drop_first=False,
-            dtype=int
-        )
-
-        smoke_cols = [
-            col for col in dummies_smoke.columns if col.startswith('smoke_')
-        ]
-        self.smoke_cols_after_dummies = [
-            col for col in smoke_cols if col != 'smoke_never smoked'
-        ]
-
         return self
 
     def transform(self, df):
