@@ -154,6 +154,8 @@ class StrokeDataTransformer(BaseEstimator, TransformerMixin):
             dtype=int
         )
 
+        df_t = df_t.drop(columns=['smoke_never smoked'], errors='ignore')
+
         df_t['age_old'] = (df_t['age'] >= 50).astype(int)
         df_t['age_child'] = (df_t['age'] < 18).astype(int)
         df_t['bmi_fat'] = (df_t['bmi'] >= 30).astype(int)
