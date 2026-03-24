@@ -103,8 +103,6 @@ class StrokeDataTransformer(BaseEstimator, TransformerMixin):
 
     def transform(self, df):
         df_t = df.copy()
-        if 'id' in df_t.columns:
-            df_t = df_t.drop('id', axis=1)
         df_t['bmi'] = df_t['bmi'].fillna(self.bmi_median)
         df_t['gender'] = df_t['gender'].str.capitalize()
         df_t = df_t[df_t['gender'] != 'Other']
