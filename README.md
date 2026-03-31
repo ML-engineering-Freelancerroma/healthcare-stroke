@@ -7,13 +7,13 @@
 ## Предобработка и обработка данных
 
 - Данные разделены на валидационную и тестовую выборки в соотношении **75:25** с сохранением пропорции целевого класса  
-  → файл: `healthcare-stroke-prepare-for-ML.ipynb`
+→ файл: `healthcare-stroke-prepare-for-ML.ipynb`
 
 - Выполнена обработка признаков различными способами:  
   - one-hot encoding  
   - label encoding  
   - ручное кодирование  
-  → файл: `feat_prepare.ipynb`
+→ файл: `feat_prepare.ipynb`
 
 ## Важные метрики
 
