@@ -4,7 +4,7 @@
 
 Датасет: [Healthcare Dataset Stroke Data](https://www.kaggle.com/datasets/aouatifcherdid/healthcare-dataset-stroke-data)
 
-## Основные этапы работы
+## Предобработка и обработка данных
 
 - Данные разделены на валидационную и тестовую выборки в соотношении **75:25** с сохранением пропорции целевого класса  
   → файл: `healthcare-stroke-prepare-for-ML.ipynb`
